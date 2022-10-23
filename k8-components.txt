@@ -35,4 +35,6 @@ service >>
 
 > It also acts as a load balancer to route traffick between the nodes
 
+Deployment >> Used to create deployments(creating pods) for pods. 
+
 ingress >> Maps/exposes app(running in pod) domain name to external / internet.For example, Assume if an app is running on ip http://128.24.164.92:8080/my-app ingress will map this request to http://my-app.com such that the traffic from this domain url will route the service pointing to ip http://128.24.164.92:8080/my-app
