@@ -1,0 +1,40 @@
+pods >> is an abstraction over containers (basic unit of k8)
+
+master >> Is the server in the cluster which is connected to all the other nodes and acts as single point of contact for the cluster (It is recommended to create atleast two master in a production setup)
+
+node >> a node/worker in a k8 cluster connected to master
+
+Every node must have below 3 components
+***************************************
+kubelet >> component that interacts with pods based on instructions from the master
+
+container run time >> like Docker to run / enable virtualisation to work with containers (present within pods)
+
+kubeproxy >> To forward requests to/between pods such that assume if an app want to forward request to database pod, kube proxy is intelligent enough that it forwards the request to the database pod in the same node instead of the other node to avoid latency
+***************************************
+
+Every master must have below 4 components
+***************************************
+apiserver >> is a single entry / gateway of the master that allows to interact or work with k8 cluster using CLI like UI, kubelet(widely used) etc
+
+scheduler >> decides when and where to schedule the creation of pod/s on node/s
+
+control manager >> status of the changes in the node
+
+etcd >> brain of the master which contains all info about cluster like pod resources, health, replicas, status of the node etc
+***************************************
+
+Other components:
+
+configMap >> contains configurations related to a pod. For example, assume a databse pod is crashed (having url http://mongo-db/my-app) and when it is created newly (replica) the url of the db will change . So in this case we use configMap to store all such dynamic values so that user no need to change in every application pod everytime when such issue occurs.
+
+secret >> similar to the above it contains password or username or secret text to enable authentication or connection between pods
+
+service >>
+ >  Is a component that assigns internal permanent ip address to the pod. For example, if an application pod running on url http://128.24.164.92:8080/my-app has crashed. when k8 master brings up or creates or replaces this with a new pod then the ip address of the pod will change so in order handle this meaning to assign a static ip to pod we use service component
+
+> It also acts as a load balancer to route traffick between the nodes
+
+Deployment >> Used to create deployments(creating pods) for pods. 
+
+ingress >> Maps/exposes app(running in pod) domain name to external / internet.For example, Assume if an app is running on ip http://128.24.164.92:8080/my-app ingress will map this request to http://my-app.com such that the traffic from this domain url will route the service pointing to ip http://128.24.164.92:8080/my-app

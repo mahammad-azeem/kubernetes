@@ -1,0 +1,43 @@
+##All commands indicated below can be used while working with minikube
+
+#To get the status of pods
+>> kubectl get pods
+
+#To get the status of deployments
+>> kubectl get deployments
+
+#To get the status of service
+>> kubectl get service
+
+#To get the status of node
+>> kubectl get node
+
+#To get the status of replicaset
+>> kubectl get replicaset
+
+#To get description of the pod
+>> kubectl describe pod <name of the pod>
+
+#To debug pod for any issues
+>> kubectl logs <name of the pod>
+
+#To get an interactive terminal of a running pod
+>> kubectl exec -it <name of the pod> -- /bin/bash
+
+#To Create new deployment
+>> kubectl create deployment <name of the deployment> --image=<image name>
+
+#To edit deployment
+>> kubectl edit deployment <name of the deployment>
+
+#To delete deployment
+>> kubectl delete deployment <name of the deployment>
+
+#To create a configuration file for deployment/service
+>> kubectl apply -f <name of the confi file>.yaml
+
+#To delete a configuration file for deployment/service
+>> kubectl delete -f <name of the confi file>.yaml
+
+#Below command returns current CPU and memory usage for a cluster’s pods or nodes, or for a particular pod or node if specified
+>> kubectl top
