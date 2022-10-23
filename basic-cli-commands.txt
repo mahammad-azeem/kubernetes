@@ -1,5 +1,3 @@
-##All commands indicated below can be used while working with minikube
-
 #To get the status of pods
 >> kubectl get pods
 
