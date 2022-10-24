@@ -8,7 +8,7 @@ spec:
    http:
     paths: 
      path: /about
-      backend:
+     backend:
         serviceName: my-app-about-service
         servicePort: 3030
       path: /dashboard

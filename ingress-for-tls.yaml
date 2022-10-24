@@ -1,0 +1,21 @@
+apiVersion: app/v1
+kind: Ingress
+metadata:
+ name: tls-ingress
+spec:
+ tls:
+ - hosts:
+   - my-app.com
+   secretName: myapp-secret-tls
+ rules:
+  - host: my-app.com
+    http:
+     paths:
+     - path: /analytics
+       backend:
+        serviceName: my-app-analytics-service
+        servicePort: 3030
+     - path: /dashboard
+       backend:
+        serviceName: my-app-dashboard-service
+        servicePort: 8080
