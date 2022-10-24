@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+ name: my-multi-host-ingress
+spec:
+ rules:
+ - host: about.my-app.com
+   http:
+    paths:
+     backend:
+       serviceName: my-app-about-service
+       servicePort: 3030
+ - host: dashboard.my-app.com
+   http:
+    paths:
+     backend:
+      serviceName: my-app-dashboard-service
+      servicePort: 8080

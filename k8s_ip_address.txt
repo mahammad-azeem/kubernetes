@@ -1,0 +1,12 @@
+ClusterIP:
+Is the default tyoe and is the IP address of the cluster or the service
+ClusterIP only accessible within the cluster
+this ip gets created autmotically by k8
+
+NodePort:
+Is a static that is opened to access the service on that worker node only 
+has predefined value between 30000-32767
+this ip gets created autmotically by k8
+
+LoadBalancer:
+Makes Services /clusterIp becomes accessible via loadbalancer (through cloud providers)
